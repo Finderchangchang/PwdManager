@@ -1,0 +1,18 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion '23.0.1'
+
+    defaultConfig {
+        minSdkVersion 15
+        targetSdkVersion 23
+    }
+}
+
+dependencies {
+    compile 'com.android.support:cardview-v7:23.2.1'
+    compile 'com.github.bumptech.glide:glide:3.6.1'//glide谷歌加载图片包
+    compile 'com.android.support:support-annotations:23.2.1'
+    compile 'com.jakewharton:butterknife:7.0.1'
+}

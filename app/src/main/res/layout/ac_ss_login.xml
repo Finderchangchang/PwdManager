@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:lockview="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/biaoqian_lab"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/remark_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/msg_tv"
+        android:layout_centerHorizontal="true"
+        android:text="本app完全免费" />
+
+    <TextView
+        android:id="@+id/msg_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/pwd_mv"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="50dp"
+        android:text="" />
+
+
+    <net.tsz.afinal.view.MaterialLockView
+        android:id="@+id/pwd_mv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        lockview:CORRECT_COLOR="#00ff00"
+        lockview:LOCK_COLOR="#fff"
+        lockview:WRONG_COLOR="#ff0000" />
+</RelativeLayout>
