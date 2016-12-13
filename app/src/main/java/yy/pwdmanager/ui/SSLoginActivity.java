@@ -1,6 +1,5 @@
 package yy.pwdmanager.ui;
 
-import android.os.Bundle;
 import android.widget.TextView;
 
 import net.tsz.afinal.view.MaterialLockView;
@@ -52,6 +51,7 @@ public class SSLoginActivity extends BaseActivity {
                         if (re_key.equals(SimplePattern)) {
                             Utils.IntentPost(MainActivity.class);
                             Utils.putCache("ss_key", re_key);
+                            msgTv.setText("请再次录入手势");
                             finish();
                         } else {
                             ToastShort("手势错误");

@@ -21,7 +21,8 @@
         android:layout_above="@+id/pwd_mv"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="50dp"
-        android:text="" />
+        android:layout_marginTop="10dp"
+        android:text="请录入手势密码" />
 
 
     <net.tsz.afinal.view.MaterialLockView
