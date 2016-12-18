@@ -1,49 +1,54 @@
 package yy.pwdmanager.ui;
 
 import android.os.Bundle;
-import android.support.design.widget.BottomSheetBehavior;
-import android.support.design.widget.BottomSheetDialog;
-import android.widget.Button;
+import android.widget.TextView;
 
 import com.iflytek.cloud.SpeechConstant;
 import com.iflytek.cloud.SpeechError;
 import com.iflytek.cloud.SpeechSynthesizer;
-import com.iflytek.cloud.SpeechUtility;
 import com.iflytek.cloud.SynthesizerListener;
 
+import net.tsz.afinal.view.TitleBar;
+
+import butterknife.Bind;
+import butterknife.ButterKnife;
+import rx.android.schedulers.AndroidSchedulers;
+import rx.schedulers.Schedulers;
 import yy.pwdmanager.BaseActivity;
 import yy.pwdmanager.R;
+import yy.pwdmanager.util.HttpUtil;
 
 /**
- * Created by Finder丶畅畅 on 2016/12/14 00:06
+ * Created by Finder丶畅畅 on 2016/12/18 10:24
  * QQ群481606175
  */
 
-public class PwdManagerActivity extends BaseActivity {
-    Button btn;
-    BottomSheetBehavior bottomSheetBehavior;
-    BottomSheetDialog mBottomSheetDialog;
+public class XHActivity extends BaseActivity {
+    @Bind(R.id.title_bar)
+    TitleBar titleBar;
+    @Bind(R.id.main_tv)
+    TextView centerTv;
 
     @Override
     public void initViews() {
-        setContentView(R.layout.ac_pwd_manage);
-        btn = (Button) findViewById(R.id.btn);
-        load();
+        setContentView(R.layout.ac_xh);
+        ButterKnife.bind(this);
+        titleBar.setLeftClick(() -> finish());
     }
 
-    private void load() {
-        bottomSheetBehavior = BottomSheetBehavior.from(findViewById(R.id.bottom_sheet));
-        mBottomSheetDialog = new BottomSheetDialog(this);
-        mBottomSheetDialog.setCancelable(false);
-        mBottomSheetDialog.setContentView(R.layout.dialog_bottom);
-        Button btn = (Button) mBottomSheetDialog.findViewById(R.id.dia_btn);
-        btn.setOnClickListener(v -> mBottomSheetDialog.dismiss());
-
-        mBottomSheetDialog.setOnCancelListener(dialog -> ToastShort("Cancel"));
-        mBottomSheetDialog.setOnDismissListener(dialog -> load());
+    @Override
+    public void initEvents() {
+        HttpUtil.loadTL()
+                .getDaJia("3dcacc2cd453e6f95f7b17f5cc783487", "讲个笑话", "adc123")
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(map -> {
+                    centerTv.setText(map.getText());
+                    spike(map.getText());
+                });
     }
 
-    private void spike() {
+    private void spike(String val) {
         //1.创建SpeechSynthesizer对象, 第二个参数：本地合成时传InitListener
         SpeechSynthesizer mTts = SpeechSynthesizer.createSynthesizer(this, null);
         //2.合成参数设置，详见《科大讯飞MSC API手册(Android)》SpeechSynthesizer 类
@@ -56,7 +61,7 @@ public class PwdManagerActivity extends BaseActivity {
         //如果不需要保存合成音频，注释该行代码
 //        mTts.setParameter(SpeechConstant.TTS_AUDIO_PATH, "./sdcard/iflytek.pcm");
         //3.开始合成
-        mTts.startSpeaking("大家好，我就柳睿垚。柳睿垚~~", new SynthesizerListener() {
+        mTts.startSpeaking(val, new SynthesizerListener() {
             @Override
             public void onSpeakBegin() {
 
@@ -84,7 +89,7 @@ public class PwdManagerActivity extends BaseActivity {
 
             @Override
             public void onCompleted(SpeechError speechError) {
-                String s="";
+                String s = "";
             }
 
             @Override
@@ -92,12 +97,5 @@ public class PwdManagerActivity extends BaseActivity {
 
             }
         });
-    }
-
-    @Override
-    public void initEvents() {
-//        btn.setOnClickListener(v -> mBottomSheetDialog.show());
-        btn.setOnClickListener(v -> spike());
-
     }
 }
