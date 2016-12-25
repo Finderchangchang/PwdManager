@@ -69,6 +69,11 @@ public class Utils {
                 sure.click(null)).create();
     }
 
+    public static String getNowChuo() {
+        long time = System.currentTimeMillis() / 1000;//获取系统时间的10位的时间戳
+        return String.valueOf(time);
+    }
+
     public interface setSure {
         void click(View view);
     }

@@ -21,13 +21,10 @@ import yy.pwdmanager.util.Utils;
 
 public class UiActivity extends BaseActivity {
 
-
     @Override
     public void initViews() {
         setContentView(R.layout.ac_ui);
         ButterKnife.bind(this);
-
-
     }
 
     @Override

@@ -23,17 +23,13 @@ public class HttpUtil {
     public static BaiDuAPI load() {
         //手动创建一个OkHttpClient并设置超时时间
         OkHttpClient httpClientBuilder = new OkHttpClient.Builder()
-                .addInterceptor(chain -> {
-                    Request request = chain.request().newBuilder()
-                            .addHeader("apikey", "706da19045e60c089cd457bd10e5e733").build();
-                    return chain.proceed(request);
-                }).connectTimeout(DEFAULT_TIMEOUT, TimeUnit.SECONDS).build();
+                .connectTimeout(DEFAULT_TIMEOUT, TimeUnit.SECONDS).build();
 
         retrofit = new Retrofit.Builder()
                 .client(httpClientBuilder)
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
-                .baseUrl(BASE_URL)
+                .baseUrl("https://route.showapi.com")
                 .build();
 
         return retrofit.create(BaiDuAPI.class);

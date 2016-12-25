@@ -33,20 +33,24 @@
         <activity android:name=".ui.XHActivity" />
         <activity android:name=".ui.UiActivity" />
         <activity
-            android:name=".ui.FullscreenActivity"
+            android:name=".ui.StartActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/title_activity_fullscreen"
-            android:theme="@style/FullscreenTheme"></activity>
-        <activity
-            android:name=".ui.ScrollingActivity"
-            android:label="@string/title_activity_scrolling"
-            android:theme="@style/AppTheme">
+            android:theme="@style/FullscreenTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".ui.ScrollingActivity"
+            android:label="@string/title_activity_scrolling"
+            android:theme="@style/AppTheme"></activity>
+        <activity
+            android:name=".ui.HLActivity"
+            android:label="@string/title_activity_hl"
+            android:theme="@style/AppTheme"></activity>
     </application>
 
 </manifest>

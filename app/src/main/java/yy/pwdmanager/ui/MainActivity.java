@@ -75,7 +75,7 @@ public class MainActivity extends BaseActivity
         mainGv.setOnItemClickListener((parent, view, position, id) -> {
             switch (position) {
                 case 0:
-                    Utils.IntentPost(XHActivity.class);
+                    Utils.IntentPost(ScrollingActivity.class, intent -> intent.putExtra("title", "笑话大全"));
                     break;
             }
         });
@@ -125,7 +125,7 @@ public class MainActivity extends BaseActivity
     private void loadData() {
         list = new ArrayList();
         list.add(new UiModel("笑话大全", R.mipmap.nlsc_icon015));
-        list.add(new UiModel("快递查询", R.mipmap.nlsc_icon001));
+        list.add(new UiModel("老黄历", R.mipmap.nlsc_icon001));
         list.add(new UiModel("列车查询", R.mipmap.nlsc_icon002));
         list.add(new UiModel("快递查询", R.mipmap.nlsc_icon003));
         list.add(new UiModel("快递查询", R.mipmap.nlsc_icon004));
