@@ -16,7 +16,7 @@
         android:id="@+id/clear_btn"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:text="123"/>
+        android:text="清空" />
 
     <LinearLayout
         android:id="@+id/bottom_ll"

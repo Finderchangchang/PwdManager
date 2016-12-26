@@ -26,6 +26,7 @@ public class UiActivity extends BaseActivity {
     Button clear_btn;
     @Bind(R.id.main_ll)
     LinearLayout main_ll;
+    float main_startX;//起始的x的位置
     float startX;//起始的x的位置
 
     @Override
@@ -40,8 +41,8 @@ public class UiActivity extends BaseActivity {
         bottom_ll.addView(view);
         DisplayMetrics metrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(metrics);
-        int width = metrics.widthPixels;
-        int height = metrics.heightPixels;
+        int width = metrics.widthPixels;//屏幕宽度
+        int height = metrics.heightPixels;//屏幕高度
         int w = View.MeasureSpec.makeMeasureSpec(0,
                 View.MeasureSpec.UNSPECIFIED);
         int h = View.MeasureSpec.makeMeasureSpec(0,
@@ -49,17 +50,25 @@ public class UiActivity extends BaseActivity {
         clear_btn.measure(w, h);
         int ben_width = clear_btn.getMeasuredWidth();
         int ben_height = clear_btn.getMeasuredHeight();
-        clear_btn.setX(metrics.widthPixels / 2 - ben_width / 2);
+        float xx = metrics.widthPixels / 2 - ben_width / 2;
+        main_startX = xx;
+        clear_btn.setX(xx);
         clear_btn.setY(metrics.heightPixels - ben_height / 2 - 200);
 //        clear_btn.setOnClickListener(v -> view.clearImg());
         main_ll.setOnTouchListener((v, event) -> {
             switch (event.getAction()) {
                 case MotionEvent.ACTION_DOWN:
+                    startX = event.getX();
                     break;
                 case MotionEvent.ACTION_UP:
+                    main_startX = clear_btn.getX();
                     break;
                 case MotionEvent.ACTION_MOVE:
-                    Log.i("X", event.getX() + "");
+                    float vv = event.getX() - startX + main_startX;
+                    if (width - ben_width > vv && vv > 0) {
+                        clear_btn.setX(vv);
+                    }
+                    Log.i("X", vv + "");
                     break;
             }
             return true;

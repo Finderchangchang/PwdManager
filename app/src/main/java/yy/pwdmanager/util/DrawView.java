@@ -24,14 +24,14 @@ public class DrawView extends View {
 
     public DrawView(Context context) {
         super(context);
-        cache_Bitmip = Bitmap.createBitmap(10, 10, Bitmap.Config.ARGB_8888);
+        cache_Bitmip = Bitmap.createBitmap(1, 1, Bitmap.Config.ARGB_8888);
         cache_canvas = new Canvas();
         path = new Path();
         cache_canvas.setBitmap(cache_Bitmip);
         paint = new Paint(Paint.DITHER_FLAG);
         paint.setColor(Color.RED);
         paint.setStyle(Paint.Style.STROKE);
-        paint.setStrokeWidth(1);
+        paint.setStrokeWidth(3);
         paint.setAntiAlias(true);//设置反锯齿
         paint.setDither(true);
     }
