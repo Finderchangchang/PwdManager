@@ -11,8 +11,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.GridView;
 
-import net.tsz.afinal.FinalDb;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,8 +18,6 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import yy.pwdmanager.BaseActivity;
 import yy.pwdmanager.R;
-import yy.pwdmanager.listener.PwdTypeListener;
-import yy.pwdmanager.model.PwdTypeModel;
 import yy.pwdmanager.model.UiModel;
 import yy.pwdmanager.util.CommonAdapter;
 import yy.pwdmanager.util.CommonViewHolder;
@@ -67,6 +63,7 @@ public class MainActivity extends BaseActivity
             }
         };
         mainGv.setAdapter(mAdapter);
+        mainGv.getChildAt(0);
     }
 
     @Override

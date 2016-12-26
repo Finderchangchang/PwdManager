@@ -3,8 +3,6 @@ package yy.pwdmanager.ui;
 import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CollapsingToolbarLayout;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.widget.TextView;
@@ -28,6 +26,7 @@ public class ScrollingActivity extends AppCompatActivity {
     TextView content_tv;
     String title;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,6 +36,7 @@ public class ScrollingActivity extends AppCompatActivity {
         toolbar.setTitle(title);
         setSupportActionBar(toolbar);
         toolbar.setNavigationOnClickListener(v -> finish());
+
         HttpUtil.loadTL()
                 .getDaJia("3dcacc2cd453e6f95f7b17f5cc783487", "讲个笑话", "adc123")
                 .subscribeOn(Schedulers.io())

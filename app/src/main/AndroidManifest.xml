@@ -31,12 +31,7 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".ui.PwdManagerActivity" />
         <activity android:name=".ui.XHActivity" />
-        <activity android:name=".ui.UiActivity" />
-        <activity
-            android:name=".ui.StartActivity"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:label="@string/title_activity_fullscreen"
-            android:theme="@style/FullscreenTheme">
+        <activity android:name=".ui.UiActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -46,11 +41,9 @@
         <activity
             android:name=".ui.ScrollingActivity"
             android:label="@string/title_activity_scrolling"
-            android:theme="@style/AppTheme"></activity>
-        <activity
-            android:name=".ui.HLActivity"
-            android:label="@string/title_activity_hl"
-            android:theme="@style/AppTheme"></activity>
+            android:theme="@style/AppTheme">
+
+        </activity>
     </application>
 
 </manifest>
