@@ -1,0 +1,50 @@
+﻿-------天气情况json--------
+http://hao.weidunewtab.com/myapp/weather/data/index_new.php?cityID=101090201&t=1451527176605
+http://hao.weidunewtab.com/myapp/weather/data/indexInTime.php?cityID=101090201&t=1451527176710
+http://hao.weidunewtab.com/tianqi/json/index.php?id=101090201&t=1451527176788
+http://api.map.baidu.com/telematics/v3/weather?location=保定&output=json&ak=XAUTG3wLFCte206ZrMVunjbG&mcode=5F:33:8B:DD:33:47:51:54:BD:52:04:11:97:3D:82:9D:21:23:BB:AA;liuliu.demo.list
+
+http://cdn.weather.hao.360.cn/sed_api_weather_info.php?_jsonp=jQuery200024929745239205658_1451543829997&app=360chrome&code=101090201&_=1451543829998(360导航天气)
+-------星座运势-------------------
+http://app.data.qq.com/?umod=astro&act=astro&t=18
+
+-------暴走漫画---------------------------
+http://api.ibaozou.com/api/v1/faces/all（所有表情）
+
+-----微信精选------（http://fzn.cc/）
+fzn.cc/shishi/page/2/
+
+pc.recommend.kandian.360.cn/youlike?callback=jQuery1830266831447603181_1451974478298&u=238775686.1856777739881074000.1450839266815.6836&n=10&f=jsonp&o=rand&fr=sh&option=first&c=baby&_=1451974642332
+
+pc.recommend.kandian.360.cn/youlike?callback=jQuery1830266831447603181_1451974478298&u=238775686.1856777739881074000.1450839266815.6836&n=10&f=jsonp&o=rand&fr=sh&option=first&c=economy&_=1451974640916
+
+sh.qihoo.com/api/kandian/detail_column_list.php?column=%E9%80%9A%E7%94%A8%E7%9C%8B%E7%82%B9&callback=__callback_getColumnData&_=1452145849531
+//十六进制转汉字
+public static String unicodeToString(String str) {
+	Pattern pattern = Pattern.compile("(\\\\u(\\p{XDigit}{4}))");
+	Matcher matcher = pattern.matcher(str);
+	char ch;
+	while (matcher.find()) {
+	   ch = (char) Integer.parseInt(matcher.group(2), 16);
+	   str = str.replace(matcher.group(1), ch + "");
+	}
+   return str;
+}
+http://opendata.baidu.com/api.php?query=2016年3月&resource_id=6018百度日历
+content.kitchenstories.de/v2/zh/content.json厨房信息	
+
+sh.qihoo.com/api/regional_news.php 360获得最新接口	
+s.sh.qihoo.com/api/hot_new.json?jsonp=1&callback=HotAjax.loadOk&type=day0&t=807940
+sh.qihoo.com/api/new_suggest_hotquery.json?_callback=__jsonp0__&t=2423820
+www.39yst.com/flist/360jiankang.json?callback=callback&_=1454292442387	
+site.browser.360.cn/msgmodel.php?mt=[%22ssrc%22] 360最新搜索词
+
+http://elephant.browser.360.cn/?t=360bjtime&source=bjtime&device=1&sign=f3a1ea57afc09a319d5513cec35ee041&mid=c2c4a7c0081544028abf873a083db432&rp=1&cid=cid_0&is_paging=0&n=10&ch=platform_9&pcver=8.1.1.240&p=tblist&_=1482807429850 新闻
+
+	
+	
+
+
+
+
+
