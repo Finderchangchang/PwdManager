@@ -18,11 +18,17 @@ public abstract class BaseActivity extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         initViews();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
         initEvents();
     }
+
     public abstract void initViews();
 
-    public abstract void initEvents();
+    public abstract void initEvents();//我自己写的
 
     private Toast toast = null;
 

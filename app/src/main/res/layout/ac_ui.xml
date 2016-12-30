@@ -9,8 +9,7 @@
         android:id="@+id/main_gv"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:numColumns="3"
-        android:visibility="gone" />
+        android:numColumns="3" />
 
     <Button
         android:id="@+id/clear_btn"

@@ -54,6 +54,10 @@ public class MainActivity extends BaseActivity
         drawer.setDrawerListener(toggle);
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
+    }
+
+    @Override
+    public void initEvents() {
         loadData();
         mAdapter = new CommonAdapter<UiModel>(this, list, R.layout.item_ui) {
             @Override
@@ -64,10 +68,6 @@ public class MainActivity extends BaseActivity
         };
         mainGv.setAdapter(mAdapter);
         mainGv.getChildAt(0);
-    }
-
-    @Override
-    public void initEvents() {
         mAdapter.refresh(list);
         mainGv.setOnItemClickListener((parent, view, position, id) -> {
             switch (position) {
@@ -118,6 +118,7 @@ public class MainActivity extends BaseActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
 
     private void loadData() {
         list = new ArrayList();

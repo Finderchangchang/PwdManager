@@ -15,7 +15,6 @@ import yy.pwdmanager.R;
 import yy.pwdmanager.util.HttpUtil;
 
 public class ScrollingActivity extends AppCompatActivity {
-
     @Bind(R.id.toolbar)
     Toolbar toolbar;
     @Bind(R.id.toolbar_layout)

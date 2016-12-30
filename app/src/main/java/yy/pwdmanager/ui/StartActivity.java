@@ -11,6 +11,9 @@ import android.view.View;
 import yy.pwdmanager.R;
 import yy.pwdmanager.util.Utils;
 
+/**
+ * 启动页
+ */
 public class StartActivity extends AppCompatActivity {
     private static final int UI_ANIMATION_DELAY = 300;
     private final Handler mHideHandler = new Handler();
@@ -47,6 +50,7 @@ public class StartActivity extends AppCompatActivity {
 
         mContentView.setOnClickListener(view -> toggle());
         Utils.IntentPost(MainActivity.class);//跳转到首页
+        finish();
     }
 
     @Override

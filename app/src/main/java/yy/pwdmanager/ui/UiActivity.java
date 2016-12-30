@@ -14,6 +14,7 @@ import yy.pwdmanager.R;
 import yy.pwdmanager.util.DrawView;
 
 /**
+ * 自定义view控制
  * Created by Finder丶畅畅 on 2016/12/18 00:14
  * QQ群481606175
  */
