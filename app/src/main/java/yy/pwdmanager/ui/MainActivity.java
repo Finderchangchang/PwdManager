@@ -74,6 +74,9 @@ public class MainActivity extends BaseActivity
                 case 0:
                     Utils.IntentPost(ScrollingActivity.class, intent -> intent.putExtra("title", "笑话大全"));
                     break;
+                case 1:
+                    Utils.IntentPost(MSActivity.class);//跳转到面试题
+                    break;
             }
         });
     }

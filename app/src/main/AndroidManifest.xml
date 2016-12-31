@@ -34,7 +34,7 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".ui.PwdManagerActivity" />
         <!--<activity android:name=".ui.UiActivity">-->
-
+        <activity android:name=".ui.MSActivity" />
         <!--</activity>-->
         <activity android:name=".ui.StartActivity">
             <intent-filter>
