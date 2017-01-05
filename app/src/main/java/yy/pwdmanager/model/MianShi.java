@@ -1,6 +1,5 @@
 package yy.pwdmanager.model;
 
-import cn.bmob.v3.Bmob;
 import cn.bmob.v3.BmobObject;
 
 /**
@@ -9,8 +8,17 @@ import cn.bmob.v3.BmobObject;
  */
 
 public class MianShi extends BmobObject {
+    public String id;
     private String title;
     private String content;
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public String getTitle() {
         return title;

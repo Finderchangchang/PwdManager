@@ -4,6 +4,8 @@ import android.support.v7.widget.Toolbar;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import net.tsz.afinal.FinalDb;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -33,36 +35,52 @@ public class MSActivity extends BaseActivity {
     ListView mainLv;
     List<MianShi> lists;
     CommonAdapter<MianShi> mAdapter;
+    FinalDb db;
 
     @Override
     public void initViews() {
         setContentView(R.layout.ac_ms);
         ButterKnife.bind(this);
+        db = FinalDb.create(this);
         toolbar.setNavigationOnClickListener(v -> finish());
         titleNameTv.setText("面试题集锦");
         lists = new ArrayList<>();
         mAdapter = new CommonAdapter<MianShi>(this, lists, R.layout.item_ms) {
             @Override
             public void convert(CommonViewHolder holder, MianShi msMessageModel, int position) {
+                final boolean[] resu = {false};
                 holder.setText(R.id.title_tv, (position + 1) + "、" + msMessageModel.getTitle());
                 holder.setText(R.id.content_tv, msMessageModel.getContent());
+                holder.setOnClickListener(R.id.item_card, v -> {
+                    resu[0] = !resu[0];
+                    holder.setVisible(R.id.content_tv, resu[0]);
+                });
             }
         };
+
         mainLv.setAdapter(mAdapter);
     }
 
     @Override
     public void initEvents() {
-        BmobQuery<MianShi> query = new BmobQuery<>();
-        query.order("-createdAt");
-        query.findObjects(new FindListener<MianShi>() {
-            @Override
-            public void done(List<MianShi> list, BmobException e) {
-                if (e == null) {
-                    lists = list;
-                    mAdapter.refresh(lists);
+        lists = db.findAll(MianShi.class);
+        if (lists.size() > 0) {
+            mAdapter.refresh(lists);
+        } else {
+            BmobQuery<MianShi> query = new BmobQuery<>();
+            query.order("-createdAt");
+            query.findObjects(new FindListener<MianShi>() {
+                @Override
+                public void done(List<MianShi> list, BmobException e) {
+                    if (e == null) {
+                        lists = list;
+                        for (MianShi model : list) {
+                            db.save(model);
+                        }
+                        mAdapter.refresh(lists);
+                    }
                 }
-            }
-        });
+            });
+        }
     }
 }

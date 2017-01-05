@@ -231,6 +231,22 @@ public class CommonViewHolder {
         return this;
     }
 
+    /**
+     * 设置控件显示隐藏
+     *
+     * @param viewId（控件id）
+     * @param result(控件显示隐藏)
+     */
+    public CommonViewHolder setVisible(int viewId, boolean result, int position) {
+        View view = getView(viewId);
+            if (result) {
+                view.setVisibility(View.VISIBLE);
+            } else {
+                view.setVisibility(View.GONE);
+            }
+        return this;
+    }
+
     public int getPosition() {
         return mPosition;
     }
